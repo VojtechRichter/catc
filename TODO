@@ -1,0 +1,2 @@
+[-] let the program read from specified path, not just only from current directory
+[-] think of some kind of program options (flags) - OptionFlag struct
