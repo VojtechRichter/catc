@@ -1,2 +1,3 @@
-[-] let the program read from specified path, not just only from current directory
+[x] let the program read from specified path, not just only from current directory
 [-] think of some kind of program options (flags) - OptionFlag struct
+[-] find a better way to get file's extension

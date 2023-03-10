@@ -8,10 +8,8 @@ InputFile* parse_args(int argc, char** argv) {
 
     char* file_path = argv[1];
     InputFile* ifile = malloc(sizeof(InputFile)); 
-    ifile->file_path = "";
-    ifile->file_ext = get_file_ext(file_path);
 
-    snprintf((char*)ifile->file_path, 50, "%s.%s", file_path, ifile->file_ext);
+    ifile->file_path = file_path;
 
     return ifile;
 }
@@ -42,7 +40,13 @@ void display_usage() {
     printf("Usage: \n\n\tcatc [FILENAME]\n\tcatc [OPTION] ... [FILENAME]\n\n");
 }
 
-char* get_file_ext(char* file_name) {
+char* get_file_ext(char* file_path) {
+    char* _fpath = file_path;
+    char* file_name = strtok(_fpath, "\\");
+    while (file_name != NULL) {
+        file_name = strtok(NULL, "\\");
+    }
+
     char* next_char = NULL;
     char* file_ext = strtok_s(file_name, ".", &next_char);
     file_ext = strtok_s(NULL, ".", &next_char);
